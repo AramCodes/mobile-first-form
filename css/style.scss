@@ -1,0 +1,151 @@
+$primary-font: 'Poppins';
+$secondary-font: "Bebas Neue";
+$primary-color: #5200FF;
+$input-color: #EDEDED;
+$input-border: 1px solid #C7C7C7;
+$white: #FFF;
+$black: #000;
+$font-weight-normal: 400;
+$font-weight-bold: 500;
+$primary-font-size: 4rem;
+$secondary-font-size: 1.5rem;
+$third-font-size: 1.125rem;
+
+//Attempt to mobile first
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: $primary-font;
+    height: 100vh;
+}
+
+.primary-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-col {
+    background-color: $primary-color;
+    color: $white;
+    text-align: center;
+    position: relative;
+
+    h1 {
+        margin: 0;
+        font-family: $secondary-font;
+        font-weight: normal;
+        font-size: $primary-font-size;
+        line-height: 1.2em;
+    }
+
+    p {
+        font-size: $secondary-font-size;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    
+}
+
+.left-col:before {
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-position: 100%;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 22%;
+}
+
+.content {
+    position: relative;
+}
+
+.left-col, .right-col {
+    padding: 6.75em 8vw;
+}
+
+
+.right-col {
+    label {
+        display: block;
+        font-size: $third-font-size;
+        margin-bottom: .77rem;
+    }
+
+    input {
+        width: 100%;
+        background: $input-color;
+        border: $input-border;
+        font-size: 1rem;
+        padding: .75rem;
+        outline: none;
+        margin-bottom: 2.5em;
+    }
+
+    input[type="text"]:focus {
+        border: 3px solid $primary-color;
+    }
+    
+
+    button {
+        width: 100%;
+        background-color: $primary-color;
+        padding: 1em;
+        border: none;
+        color: $white;
+        font-size: $third-font-size;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (min-width: 770px) {
+
+    .left-col:before {
+        background-size: center;
+    }
+
+    .right-col {
+        .form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 2em;
+        }
+
+        button {
+            width: auto;
+            padding: 1em 2.5em;
+        }
+    }
+    
+}
+
+@media only screen and (min-width: 1260px) {
+    .primary-container {
+        flex-direction: row;
+    }
+
+    .left-col, .right-col {
+        flex-basis: 0;
+        flex-grow: 1;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+
+    .left-col {
+        text-align: right;
+    }
+
+    .right-col {
+        .form {
+            grid-template-columns: repeat(1, 450px); 
+        }
+
+    }
+}
